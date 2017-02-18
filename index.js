@@ -1,14 +1,33 @@
 // native
+const fs = require('fs');
 const http = require('http');
 const path = require('path');
 
 // third-party
 const express  = require('express');
 const socketIO = require('socket.io');
+const objectPath = require('object-path');
 
 // constants
 const KEEP_MESSAGES_COUNT = 10;
 const EVENT_NAME = 'event';
+
+const EVENTS_LOG_FILE_PATH = process.env.EVENTS_LOG_FILE_PATH;
+
+if (!EVENTS_LOG_FILE_PATH) {
+  throw new Error('EVENTS_LOG_FILE_PATH env var MUST be set');
+}
+
+function logEvent(data, prop) {
+
+  fs.appendFile(
+    EVENTS_LOG_FILE_PATH,
+    objectPath.get(data, prop) + '\n',
+    function () {
+      console.log('data appended');
+    }
+  );
+}
 
 var app = express();
  
@@ -37,6 +56,7 @@ io.on('connection', function(client) {
   client.on(EVENT_NAME, function (data) {
     console.log('received event (will broadcast)', data);
     addEventToLastEvents(data);
+    logEvent(data, 'data.body');
     client.broadcast.emit(EVENT_NAME, data);
   });
 
