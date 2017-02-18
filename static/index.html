@@ -2,6 +2,8 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Page title</title>
 
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
@@ -9,19 +11,20 @@
     
   </head>
   <body>
-    <input placeholder="enviado por" name="who-am-i">
-
-    <h2>chat</h2>
     <ul id="messages">
 
     </ul>
 
-    <form id="message-form">
-      <div id="message-form-container">
-        <input name="message">
-        <button type="submit">send</button>
-      </div>
-    </form>
+    <div id="controls">
+      <form id="message-form">
+        <input placeholder="enviado por" name="who-am-i">
+
+        <div id="message-form-container">
+          <input name="message">
+          <button type="submit">send</button>
+        </div>
+      </form>
+    </div>
 
     <script
       src="https://code.jquery.com/jquery-3.1.1.min.js"

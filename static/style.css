@@ -1,5 +1,7 @@
 body {
   font-family: 'Noto Sans', sans-serif;
+
+  margin: 0;
 }
 
 ul {
@@ -15,6 +17,20 @@ ul {
 li {
   margin: 0 0;
   padding: 0 0;
+}
+
+#controls {
+  position: fixed;
+  bottom: 0;
+  left: 10px;
+  right: 10px;
+}
+
+ul#messages {
+  margin-bottom: 100px;
+
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 ul#messages .message {
@@ -44,4 +60,9 @@ ul#messages .message-meta {
 
   font-size: 14px;
   padding: 5px 5px;
+}
+
+
+#message-form-container button[type="submit"] {
+  padding: 5px 5px 5px 5px;
 }
