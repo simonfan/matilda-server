@@ -1,0 +1,47 @@
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+ul {
+  margin: 0 0;
+  padding: 0 0;
+
+  list-style: none;
+
+  min-height: 100px;
+  border: 1px dashed darkred;
+}
+
+li {
+  margin: 0 0;
+  padding: 0 0;
+}
+
+ul#messages .message {
+
+}
+
+ul#messages .message-meta {
+  font-size: 0.7em;
+  color: skyblue;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+#message-form-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 50px;
+}
+
+#message-form-container input[name="message"] {
+  flex-grow: 1;
+  margin-right: 10px;
+
+  font-size: 14px;
+  padding: 5px 5px;
+}
