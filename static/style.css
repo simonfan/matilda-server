@@ -10,8 +10,8 @@ ul {
 
   list-style: none;
 
-  min-height: 100px;
-  border: 1px dashed darkred;
+  min-height: calc(100vh - 82px);
+  /*border: 1px dashed darkred;*/
 }
 
 li {
@@ -27,19 +27,19 @@ li {
 }
 
 ul#messages {
-  margin-bottom: 100px;
+  margin-bottom: 82px;
 
   margin-left: 10px;
   margin-right: 10px;
 }
 
 ul#messages .message {
-
+  margin-top: 5px;
 }
 
 ul#messages .message-meta {
   font-size: 0.7em;
-  color: skyblue;
+  color: darkgray;
 
   display: flex;
   justify-content: space-between;

@@ -44,7 +44,12 @@
       aux.$createMessage = function (data) {
 
         var date = new Date(data.date);
-        var dateStr = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+
+        var hoursStr = ('0' + date.getHours()).slice(-2);
+        var minutesStr = ('0' + date.getMinutes()).slice(-2);
+        var secondsStr = ('0' + date.getSeconds()).slice(-2);
+
+        var dateStr = hoursStr + ':' + minutesStr + ':' + secondsStr;
 
         var html = [
           '<li class="message">',
@@ -68,6 +73,10 @@
 
           var message = $messageForm.find('[name="message"]').val();
 
+          if (!message) {
+            return;
+          }
+
           var messageData = {
             from: {
               name: $('[name="who-am-i"]').val() || socket.id,
@@ -83,6 +92,8 @@
           });
 
           $messages.append(aux.$createMessage(messageData));
+          window.scrollTo(0, document.body.scrollHeight);
+
 
           $messageForm.find('[name="message"]').val('');
         });
@@ -92,6 +103,7 @@
         switch (event.name) {
           case 'message':
             $messages.append(aux.$createMessage(event.data));
+            window.scrollTo(0, document.body.scrollHeight);
 
           default:
             console.warn('event name unsupported', event);
